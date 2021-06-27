@@ -43,7 +43,7 @@ const generateId = () => {
 
 // ******************************* //
 
-// server
+// ** server "/"
 
 server.get('/', (req, res) => {
   const htmlGreet = `
@@ -57,9 +57,13 @@ server.get('/', (req, res) => {
   res.send(htmlGreet);
 });
 
+// ** /api/notes
+
 server.get('/api/notes', (req, res) => {
   res.json(notes);
 });
+
+// ** /api/notes/:id
 
 server.get('/api/notes/:id', (req, res) => {
   const { id } = req.params;
@@ -71,6 +75,8 @@ server.get('/api/notes/:id', (req, res) => {
     return res.json(note);
   }
 });
+
+// * POST
 
 server.post('/api/notes', (req, res) => {
   const body = req.body;
@@ -91,11 +97,15 @@ server.post('/api/notes', (req, res) => {
   res.json(note);
 });
 
+// * DELETE
+
 server.delete('/api/notes/:id', (req, res) => {
   const { id } = req.params;
   notes = notes.filter((n) => n.id !== parseInt(id));
   res.status(200).json(notes);
 });
+
+// ! PORT
 
 server.listen(PORT, () => {
   console.log(`Hello, server is running on port: ${PORT} :)`);
