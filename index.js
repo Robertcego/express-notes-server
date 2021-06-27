@@ -29,9 +29,9 @@ let notes = [
 
 // ?? What exactly is happening in that line of code?
 // ?? notes.map(n => n.id) creates a new array that contains all the ids of the notes.
-// ? Math.max returns the maximum value of the numbers that are passed to it.
-// ? However, notes.map(n => n.id) is an array so it can't directly be given as a parameter to Math.max.
-// ? The array can be transformed into individual numbers by using the "three dot" spread syntax "..."
+// ?? Math.max returns the maximum value of the numbers that are passed to it.
+// ?? However, notes.map(n => n.id) is an array so it can't directly be given as a parameter to Math.max.
+// ?? The array can be transformed into individual numbers by using the "three dot" spread syntax "..."
 
 const generateId = () => {
   const maxId = notes.length > 0 ? Math.max(...notes.map((n) => n.id)) : 0;
